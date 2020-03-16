@@ -1,12 +1,10 @@
 (ns kehys.views
   (:require
    [re-frame.core :as rf]
-   [kehys.subs :as subs]
-   [tick.alpha.api :as t]))
+   [kehys.subs :as subs]))
 
 (defn main-panel []
   (let [categories  (rf/subscribe [::subs/categories]) muuvi (rf/subscribe [::subs/muuvi])]
-
     [:div {:style {:display "flex"}}
       [:div {:style {:width 150}}
             (for [item @categories]
@@ -17,7 +15,7 @@
                           :id c_id
                           :on-click #(rf/dispatch [:valinta])}]
                  [:b name]]))]
-
+     
       [:div {:style {:flex 1}}
         [ :input  {:on-change #(rf/dispatch [:value-change (-> % .-target .-value)])}]
         [:table   
