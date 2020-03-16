@@ -8,8 +8,7 @@
                  [cljs-ajax "0.7.3"]
                  [reagent "0.9.1"]
                  [re-frame "0.11.0"]
-                 [day8.re-frame/http-fx "v0.2.0"]
-                 [tick "0.4.23-alpha"]]
+                 [day8.re-frame/http-fx "v0.2.0"]]
 
   :plugins [
             [lein-shell "0.5.0"]]
