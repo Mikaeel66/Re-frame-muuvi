@@ -1,0 +1,35 @@
+1. Event dispatch
+
+(rf/dispatch [:time-color-change "red"])
+    Lähettää
+
+2. dispatch puts an event into a queue for processing.
+
+Event handlers can be registered via either
+
+reg-event-fx or
+reg-event-db (-fx vs -db).
+
+Because of its simplicity, we’ll be using the latter here:
+reg-event-db.
+
+reg-event-db allows you to write
+simpler handlers for the common case
+where you want them to take only
+one coeffect -
+the current app state -
+and return one effect -
+the updated app state.
+
+Here is the syntax of reg-event-db:
+
+(rf/reg-event-db
+  :the-event-id
+  the-event-handler-fn)
+
+
+3. Event handling
+4. Effect handling
+5. Query
+6. View
+7. DOM
