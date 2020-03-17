@@ -5,13 +5,10 @@
    [day8.re-frame.http-fx]
    [ajax.core :as ajax :refer [GET POST PUT]]))
 
-
 (rf/reg-event-db
  ::initialize-db
  (fn [_ _]
    db/default-db))
-
- 
 
 (defn- isChecked[c_id]
      (-> js/document
@@ -22,7 +19,6 @@
 (defn- lue_muuvit [a b]
   (rf/dispatch [:get-api-data :muuvi
       (str "https://juu.azurewebsites.net/filter_movies_by_category.php?title=" a "&flt=" b )]))
-
 
 (rf/reg-event-db
   :value-change
@@ -43,7 +39,6 @@
                       (lue_muuvit (get db :val) huu)                      
                       (assoc db :cate huu))))
                       
-
 (defn- make-api-call [resource on-success on-failure]
      {:http-xhrio {:method :get
                    :uri resource
